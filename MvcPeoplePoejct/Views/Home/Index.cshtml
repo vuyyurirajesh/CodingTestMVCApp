@@ -1,0 +1,30 @@
+﻿@using MvcPeoplePoejct.Models;
+@model List<Person>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="jumbotron">
+    <p class="lead">AGL Developer Test - Solution</p>
+</div>
+
+<div class="row">
+    @{
+        foreach (var genders in Model.GroupBy(p => p.Gender))
+        {
+
+            @Html.Raw(genders.Key)
+            <ul>
+                @{
+                    foreach (var person in genders)
+                    {
+                        <li>
+                            @Html.Raw("&nbsp;&nbsp;&nbsp;" + person.Name)
+                        </li>
+                    }
+                }
+            </ul>
+                    }
+    }
+</div>
